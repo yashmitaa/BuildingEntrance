@@ -21,6 +21,7 @@ app.use(methodOverride("_method"));
 app.use(express.static(path.join(__dirname, "public")));
 
 app.get("/home", async (req, res) => {
+  console.log("Page Opened");
   const data = await Data.find({});
   res.render("home", { data });
 });
@@ -101,5 +102,5 @@ function sendexmail(email, couth, coutm) {
 }
 
 app.listen(port, (req, res) => {
-  console.log("UP AT 3000");
+  console.log("UP AT " + port);
 });
